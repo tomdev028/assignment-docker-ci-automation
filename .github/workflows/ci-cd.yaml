@@ -44,8 +44,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: ${{github.event_name != 'pull_request'}}
-          tags: ${{step.docker_meta.outputs.tags}}
-          labels: ${{step.docker_meta.outputs.labels}}
+          tags: ${{steps.docker_meta.outputs.tags}}
+          labels: ${{steps.docker_meta.outputs.labels}}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64,linux/arm/v7
